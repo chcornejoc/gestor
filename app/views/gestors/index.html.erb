@@ -1,0 +1,73 @@
+<h1>Gestor de Proyectos</h1>
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">Proyectos</a>
+
+  <form action="gestors/dashboard" class="form-inline">
+    <%= select_tag :state, options_for_select([['Propuesta', 'Propuesta'], ['En progreso', 'En Progreso'],['Terminado', 'Terminado'],['', '']]), class: 'custom-select' %>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  </form>
+</nav>
+
+<div class="row">
+  <div class="col-sm-8">
+    <table class="table">
+      <tr>
+        <%# <th><%= sort_link(@post, :state) %>
+        <th>Proyecto</th>
+        <th>Descripción</th>
+        <th>Fecha inicio</th>
+        <th>Fecha término</th>
+        <th>Estado</th>
+      </tr>
+      <% @posts.each do |post|%>
+        <tr>
+          <td><%= post.name %></td>
+          <td><%= post.description %></td>
+          <td><%= post.date_ini %></td>
+          <td><%= post.date_fin %></td>
+          <td><%= post.state %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+
+  <div class="col-sm-4">
+    <div class="jumbotron">
+    <%#  <%= render 'form', book: @book %>
+      <form action="gestors/create" method="get" id="create_posts">
+
+        <div class="form-group">
+          <label for="name">Proyecto</label>
+          <input name="name" type="string" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="description">Descripcion</label>
+          <input name="description" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+
+          <label for="date_ini">Fecha Inicio</label>
+          <input name="date_ini" type="date" class="form-control">
+
+        </div>
+
+        <div class="form-group">
+          <label for="date_fin">Fecha Termino</label>
+          <input name="date_fin" type="date" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="state">Estado</label>
+          <%= select_tag :state, options_for_select([['Propuesta', 'Propuesta'], ['En progreso', 'En Progreso'],['Terminado', 'Terminado']]), class: 'custom-select' %>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Proyecto</button>
+
+      </form>
+    </div>
+  </div>
+</div>

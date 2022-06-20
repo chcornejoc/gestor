@@ -1,0 +1,28 @@
+<%= form_with(model: post) do |f| %>
+ <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+ </div>
+
+ <div class="form-group">
+    <%= f.label :decription %>
+    <%= f.text_field :description, class: 'form-control' %>
+ </div>
+
+ <div class="form-group">
+    <%= f.label :date_ini %>
+    <%= f.date_time_field :date_ini, class: 'form-control' %>
+ </div>
+
+ <div class="form-group">
+    <%= f.label :date_fin %>
+    <%= f.date_time_field :date_fin, class: 'form-control' %>
+ </div>
+
+ <div class="form-group">
+    <%= f.label :state %>
+    <%= f.select :state, post.states.keys, class: 'form-control' %>
+ </div>
+
+ <button type="submit" class="btn btn-primary">Guardar Proyecto</button>
+<% end %>
